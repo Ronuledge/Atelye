@@ -1,0 +1,68 @@
+﻿<Window x:Class="Ателье.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ателье"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TabControl>
+
+            <TabItem x:Name="tbService" Header="Услуги">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid AutoGenerateColumns="False" x:Name="dgService" Margin="0,0,357,0" Loaded="dgService_Loaded">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding idService}" Header="Код услуги"/>
+                            <DataGridTextColumn Binding="{Binding Name}" Header="Название услуги"/>
+                            <DataGridTextColumn Binding="{Binding Price}" Header="Цена услуги"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <Label Content="Название услуги" HorizontalAlignment="Left" Margin="454,20,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtService" HorizontalAlignment="Left" Margin="454,51,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="318"/>
+
+                    <Label Content="Цена" HorizontalAlignment="Left" Margin="454,115,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtPrice" HorizontalAlignment="Left" Margin="454,146,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="318"/>
+
+                    <Button x:Name="btnAddService" Content="Добавить" HorizontalAlignment="Left" Margin="454,220,0,0" VerticalAlignment="Top" Click="btnAddService_Click"/>
+                    <Button x:Name="btnRedactService" Content="Редактировать" HorizontalAlignment="Left" Margin="570,220,0,0" VerticalAlignment="Top" Click="btnRedactService_Click"/>
+                    <Button x:Name="btnDelService" Content="Удалить" HorizontalAlignment="Left" Margin="724,220,0,0" VerticalAlignment="Top" Click="btnDelService_Click"/>
+                </Grid>
+            </TabItem>
+
+            <TabItem x:Name="tbClient" Header="Клиенты">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="dgClient" Margin="0,0,357,0" Loaded="dgClient_Loaded">
+                        <!--<DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding idClient}" Header="ID"/>
+                            <DataGridTextColumn Binding="{Binding Name}" Header="ФИО"/>
+                            <DataGridTextColumn Binding="{Binding Addres}" Header="Адрес"/>
+                            <DataGridTextColumn Binding="{Binding Phone}" Header="Телефон"/>
+                        </DataGrid.Columns>-->
+                    </DataGrid>
+                    <TextBox x:Name="txtNameClient" HorizontalAlignment="Left" Margin="454,69,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="318"/>
+                    <TextBox x:Name="txtPhone" HorizontalAlignment="Left" Margin="454,213,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="318"/>
+
+                    <Label Content="ФИО клиента" HorizontalAlignment="Left" Margin="454,38,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Телефон" HorizontalAlignment="Left" Margin="454,177,0,0" VerticalAlignment="Top" Height="26"/>
+
+                    <Button x:Name="btnAddClient" Content="Добавить" HorizontalAlignment="Left" Margin="453,267,0,0" VerticalAlignment="Top" Width="60" Click="btnAddClient_Click"/>
+                    <Button x:Name="btnRedactClient" Content="Редактировать" HorizontalAlignment="Left" Margin="568,267,0,0" VerticalAlignment="Top" Width="90" Click="btnRedactClient_Click"/>
+                    <Button x:Name="btnDelClient" Content="Удалить" HorizontalAlignment="Left" Margin="712,267,0,0" VerticalAlignment="Top" Width="60" Click="btnDelClient_Click"/>
+                    <TextBox x:Name="txtAddres" HorizontalAlignment="Left" Margin="453,138,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="318"/>
+                    <Label Content="Адрес" HorizontalAlignment="Left" Margin="454,107,0,0" VerticalAlignment="Top" Height="26"/>
+                </Grid>
+            </TabItem>
+
+            <TabItem x:Name="tbOrder" Header="Заказы">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="dgOrder" Margin="0,0,357,125" Loaded="dgOrder_Loaded" SelectionChanged="dgOrder_SelectionChanged"/>
+                    <DataGrid x:Name="dgClientInfo" Margin="0,286,357,10"/>
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+
+    </Grid>
+</Window>
